@@ -8,7 +8,33 @@
 
 <body>
 
-    <div class="container">
+    <div class="container"  id="loginPage">
+        <h1>Login</h1>
+
+        <input
+            type="text"
+            id="username"
+            placeholder="Username"
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+        >
+
+        <button onclick="login()"> Login </button>
+
+        <div id="loginMessage"></div>
+
+    </div>
+
+
+    <div
+        class="container"
+        id="mainPage"
+        style="display:none;"
+    >
 
         <h1>OCS IITH Room Booking</h1>
 
@@ -22,65 +48,98 @@
                 View Bookings
             </button>
 
+            <button onclick="logout()">
+                Logout
+            </button>
+
         </div>
+
 
 
         <div id="bookingTab">
 
-            <div class="form-group">
-                <label>Room</label>
-                <select id="room"></select>
-            </div>
+            <form id="bookingForm">
+
+                <div class="form-group">
+
+                    <label>Room</label>
+                    <select id="room"></select>
+
+                </div>
 
 
-            <div class="form-group">
-                <label>Booking Purpose</label>
-                <select id="purpose">
 
-                    <option value="OA">
-                        Online Assessment
-                    </option>
+                <div class="form-group">
 
-                    <option value="Interview">
-                        Interview
-                    </option>
+                    <label>Booking Purpose</label>
+                    <select id="purpose">
 
-                    <option value="PPT">
-                        PPT
-                    </option>
+                        <option value="">
+                            Select Purpose
+                        </option>
 
-                </select>
-            </div>
+                        <option value="OA">
+                            Online Assessment
+                        </option>
 
+                        <option value="Interview">
+                            Interview
+                        </option>
 
-            <div class="form-group">
-                <label>Date</label>
-                <input type="date" id="date">
-            </div>
+                        <option value="PPT">
+                            PPT
+                        </option>
 
+                    </select>
 
-            <div class="form-group">
-                <label>Start Time</label>
-                <input type="time" id="startTime">
-            </div>
+                </div>
 
 
-            <div class="form-group">
-                <label>End Time</label>
-                <input type="time" id="endTime">
-            </div>
+
+                <div class="form-group">
+
+                    <label>Date</label>
+                    <input type="date" id="date">
+
+                </div>
 
 
-            <div class="form-group">
-                <label>Participants</label>
-                <input type="number" id="participants">
-            </div>
+
+                <div class="form-group">
+
+                    <label>Start Time</label>
+                    <input type="time" id="startTime" >
+
+                </div>
 
 
-            <button onclick="bookRoom()">
-                Book Room
-            </button>
 
+                <div class="form-group">
+
+                    <label>End Time</label>
+                    <input type="time" id="endTime" >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>Participants</label>
+                    <input type="number" id="participants" >
+
+                </div>
+
+
+
+                <button
+                    type="button"
+                    onclick="bookRoom()"
+                >
+                    Book Room
+                </button>
+
+            </form>
 
             <div id="message"></div>
 
@@ -88,14 +147,21 @@
 
 
 
-        <div id="viewTab" style="display:none;">
+        <div
+            id="viewTab"
+            style="display:none;"
+        >
+
             <h2>All Bookings</h2>
 
             <div class="form-group">
 
                 <label>Filter By Purpose</label>
-                <select id="filterPurpose"
-                        onchange="filterBookings()">
+
+                <select
+                    id="filterPurpose"
+                    onchange="filterBookings()"
+                >
 
                     <option value="All">
                         All
